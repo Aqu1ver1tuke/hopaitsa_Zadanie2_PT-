@@ -40,5 +40,8 @@ https://www.python.org/downloads/
 
 ### 2️⃣ Nainštalujte potrebné knižnice
 
+https://pypi.org/project/matplotlib/
+
 ```bash
-pip install matplotlib
+pip install -r requirements.txt
+
