@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
 import random
+import matplotlib
 import matplotlib.pyplot as plt
-
+matplotlib.use('TkAgg')  
 
 def generate_numbers():
     try:
@@ -25,9 +26,6 @@ def generate_numbers():
         messagebox.showerror("Chyba", "Zadajte celé čísla!")
 
 
-# ----------------------------------------------------
-# Zmena na záporné
-# ----------------------------------------------------
 def convert_to_negative():
     if not generated_numbers:
         messagebox.showerror("Chyba", "Najprv vygenerujte čísla.")
@@ -40,10 +38,6 @@ def convert_to_negative():
     for num in updated_numbers:
         updated_list.insert(tk.END, num)
 
-
-# ----------------------------------------------------
-# Zobrazenie grafu v novom okne
-# ----------------------------------------------------
 def show_graph():
     if not generated_numbers or not updated_numbers:
         messagebox.showerror("Chyba", "Musíte najprv vygenerovať aj upraviť čísla.")
@@ -60,14 +54,9 @@ def show_graph():
     plt.legend()
     plt.show()
 
-
-# ----------------------------------------------------
-# HLAVNÉ OKNO
-# ----------------------------------------------------
 root = tk.Tk()
 root.title("Generátor čísel Hopaitsa")
 
-# Большое окно по умолчанию
 root.geometry("1000x600")
 
 generated_numbers = []
@@ -115,6 +104,4 @@ original_list.grid(row=1, column=0, padx=50)
 updated_list = tk.Listbox(frame_lists, width=30, height=20)
 updated_list.grid(row=1, column=1, padx=50)
 
-
-# Štart GUI
 root.mainloop()
